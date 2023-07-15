@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="CodedVTR: Codebook-based Sparse Voxel Transformer with Geometric Guidance">
+  <meta name="keywords" content="3D Transformer, 3D Scene Understanding ">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CodedVTR: Codebook-based Sparse Voxel Transformer with Geometric Guidance</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+<!-- 
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://keunhong.com">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More Research
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://hypernerf.github.io">
+            HyperNeRF
+          </a>
+          <a class="navbar-item" href="https://nerfies.github.io">
+            Nerfies
+          </a>
+          <a class="navbar-item" href="https://latentfusion.github.io">
+            LatentFusion
+          </a>
+          <a class="navbar-item" href="https://photoshape.github.io">
+            PhotoShape
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</nav> -->
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Ada3D: Exploiting the Spatial Redundancy with Adaptive Inference for Efficient 3D Object Detection</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://nicsefc.ee.tsinghua.edu.cn/people/TianchenZhao">Tianchen Zhao</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://www.zzzdavid.tech/">Niansong Zhang</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://nicsefc.ee.tsinghua.edu.cn/people/XuefeiNing">Xuefei Ning</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://hughw19.github.io/">He Wang</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://ericyi.github.io/">Li Yi</a><sup>1,3*</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://nicsefc.ee.tsinghua.edu.cn/people/YuWang">Yu Wang</a><sup>1</sup>,
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Tsinghua University,</span>
+            <span class="author-block"><sup>2</sup>Peking University</span>
+            <span class="author-block"><sup>3</sup>Shanghai Qizhi Institude</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://nicsefc.ee.tsinghua.edu.cn/%2Fnics_file%2Fpdf%2F4e19ce30-1cb0-4447-91b2-ed2da43238e9.pdf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2203.09887"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Sides Link. -->
+              <span class="link-block">
+                <a href="http://nicsefc.ee.tsinghua.edu.cn/%2Fnics_file%2Fpdf%2F392e727e-ab7a-4883-a05a-13d9c85893b5.pdf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-file-alt-0"></i>
+                  </span>
+                  <span>Slides</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/A-suozhang/CodedVTR"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- [The Teaser Video Exmaple] -->
+<!-- <section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <video id="teaser" autoplay muted loop height="100%">
+        <source src="https://homes.cs.washington.edu/~kpar/nerfies/videos/teaser.mp4"
+                type="video/mp4">
+      </video>
+      <h2 class="subtitle has-text-centered">
+        <span class="dnerf">Nerfies</span> turns selfie videos from your phone into
+        free-viewpoint
+        portraits.
+      </h2>
+    </div>
+  </div>
+</section> -->
+
+<!-- 
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-steve">
+          <video poster="" id="steve" autoplay controls muted loop height="100%">
+            <source src="https://homes.cs.washington.edu/~kpar/nerfies/videos/steve.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-chair-tp">
+          <video poster="" id="chair-tp" autoplay controls muted loop height="100%">
+            <source src="https://homes.cs.washington.edu/~kpar/nerfies/videos/chair-tp.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-shiba">
+          <video poster="" id="shiba" autoplay controls muted loop height="100%">
+            <source src="https://homes.cs.washington.edu/~kpar/nerfies/videos/shiba.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-fullbody">
+          <video poster="" id="fullbody" autoplay controls muted loop height="100%">
+            <source src="https://homes.cs.washington.edu/~kpar/nerfies/videos/fullbody.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-blueshirt">
+          <video poster="" id="blueshirt" autoplay controls muted loop height="100%">
+            <source src="https://homes.cs.washington.edu/~kpar/nerfies/videos/blueshirt.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-mask">
+          <video poster="" id="mask" autoplay controls muted loop height="100%">
+            <source src="https://homes.cs.washington.edu/~kpar/nerfies/videos/mask.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-coffee">
+          <video poster="" id="coffee" autoplay controls muted loop height="100%">
+            <source src="https://homes.cs.washington.edu/~kpar/nerfies/videos/coffee.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-toby">
+          <video poster="" id="toby" autoplay controls muted loop height="100%">
+            <source src="https://homes.cs.washington.edu/~kpar/nerfies/videos/toby2.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+
+<section class="section">
+
+  <div class="container is-max-desktop">
+    <!--/ Poster. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Poster</h2>
+        <div class="publication-poster">
+          <img src="./static/src/poster.png"
+            class="poster"
+            lt="Poster."/>
+            <!-- <embed src="./static/src/poster.pdf" width="1600px" height="900px" /> -->
+        </div>
+      </div>
+    </div>
+    <!--/ Video. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-poster">
+          <iframe width="1080" height="720" src="https://www.youtube.com/embed/eJgardvIp7A" title="YouTube video player" 
+          frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen></iframe>
+            <!-- <embed src="./static/src/poster.pdf" width="1600px" height="900px" /> -->
+        </div>
+      </div>
+    </div>
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+			(🚧🚧🚧🚧🚧🚧🚧🚧 Under construction, to update 🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧)
+            Transformers have gained much attention by outperforming convolutional neural networks in many 2D vision
+            tasks. However, they are known to have generalization problems and rely on massive-scale pre-training and sophisticated 
+            training techniques. When applying to 3D tasks,
+            the irregular data structure and limited data scale add to
+            the difficulty of transformer’s application.
+          </p>
+          <p>
+            We propose CodedVTR (<b>Code</b>book-based <b>V</b>oxel <b>TR</b>ansformer), which improves 
+            data efficiency and generalization ability for 3D
+            sparse voxel transformers. On the one hand, we propose the
+            codebook-based attention that projects an attention space
+            into its subspace represented by the combination of “prototypes” in a learnable codebook. It regularizes attention
+            learning and improves generalization. On the other hand,
+            we propose geometry-aware self-attention that utilizes geometric information (geometric pattern, density) to guide attention learning. 
+          </p>
+          <p>
+            CodedVTR could be embedded into existing sparse convolution-based methods, and bring consistent performance improvements 
+            for indoor and outdoor 3D semantic segmentation tasks.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Paper video. -->
+    <!-- <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+          <iframe src="src.mp4"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div> -->
+
+  </div>
+</section>
+
+
+<section class="section">
+  <!-- Motivation. -->
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Motivation</h2>
+
+        <!-- Generalization. -->
+        <h3 class="title is-4">Transformer's Generalization Issue</h3>
+        <div class="content has-text-justified">
+          <p>
+            Transformers are known to have <b>generalization issues</b>. It requires large-scale pre-training and cannot be directly trained
+            on smaller datasets without overfitting. As the ViT paper states, <i>"When directly trained on the ImageNet, 
+            ViT yields modest accuracies of a few points below ResNets of comparable size".</i> When introducing transformers into the <b>3d domain</b>,
+            the generalization issue is aggravated by 3D data's relative restricted data scale and unique properties (sparsity, varying geometric shape). 
+          </p>
+        </div>
+        <!-- <div class="columns is-vcentered interpolation-panel">
+          <div class="column is-3 has-text-centered">
+            <img src="./static/src/motivation.png"
+                  class="interpolation-image"
+                  alt="Interpolate start reference image."/>
+          </div>
+        </div> -->
+        <br/>
+        <!--/ Generalization. -->
+
+        <!-- Codebook. -->
+        <h3 class="title is-4">Codebook-based Self-Attention</h3>
+        <div class="content has-text-justified">
+          <p>
+            Instead of directly learning the mapping from the activation space to the attention weight space. We construct a learnable codebook
+            , and use weighted sum of the codebook elements to approximate the attention weight. Noted that both the codebook elements and the 
+            weights are learnable.  It projects the attention learning
+            space to its subspace represented by the weighted sum of a few attention weight "prototypes" (codebook elements). It restricts
+            the attention learning space and works as regularization, which could improve generalization. <br>
+            (Interestingly, the codebook-based self-attention could be viewed as an intermediate state of transformer and convolution. 
+            When the codebook has only one element, it becomes convolution. And when the codebook has infinite number of elements, it 
+            works as transformer.)
+          </p>
+        </div>
+        <div class="content has-text-centered">
+          <img src="./static/src/codebook-attn.png"
+          class="Codebook-based self-attention"
+          alt="Codebook-based self-attention image."/>
+        </div>
+        <!--/ Codebook. -->
+
+        <!-- Geometric. -->
+        <h3 class="title is-4">Geometric-aware Self-Attention</h3>
+        <div class="content has-text-justified">
+          <p>
+            Considering the unique properties (distinct geometric shapes and varying densities) for 3D data, we carefully design distinctive geometric shapes and assign them to the attention
+            span of the codebook elements. We also use the geometric information to directly guide the attention learning, encouraging the attention
+            to choose the codebook element with the sparse pattern similar to the input activation. 
+          </p>
+        </div>
+        <div class="content has-text-centered">
+          <img src="./static/src/geo-attn.png"
+          class="geometry-attention"
+          alt="Geometry attention image."/>
+        </div>
+        <!--/ Geometric. -->
+
+      </div>
+    </div>
+  <!--/ Motivation. -->
+  </div>
+</div>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Experiments and Visualization</h2>
+        <!-- Perf. -->
+        <h3 class="title is-4">Performance</h3>
+        <div class="content has-text-justified">
+          <p>
+            CodedVTR could improve performance on both indoor and outdoor 3D semantic segmentation tasks. Noted that our CodedVTR block is 
+            compatible with existing sparse-conv based methods (e.g., SPVCNN).
+          </p>
+        </div>
+        <div class="content has-text-centered">
+          <img src="./static/src/exp.png"
+          class="exp-image"
+          alt="Experimental Results Image."
+          width="1600px" height="600px"/>
+        </div>
+        <!--/ Perf. -->
+        <!-- AttnMap. -->
+        <h3 class="title is-4">Visualization of Attention Map</h3>
+        <div class="content has-text-justified">
+          <p>
+            One of the well-known issues of transformer optimization is the "attention collapse". The attention map tends to become
+            uniform in the latter layers. When introducing codebook-based attention, the codebook elements also tend to be similar. After employing 
+            the geometric guidance, the attention map becomes distinctive. 
+          </p>
+        </div>
+        <div class="content has-text-centered">
+          <img src="./static/src/attn-map-viz.png"
+          class="geo-vis"
+          alt="Attention map visualization."/>
+        </div>
+        <!--/ AttnMap. -->
+        <!-- Geo-vis. -->
+        <h3 class="title is-4">Visualization of Geometry Guidance</h3>
+        <div class="content has-text-justified">
+          <p>
+            The voxels on the wall/corner tend to choose "vertical-cross" shaped codebook elements, the voxels 
+            on the floor/desk tend to choose the "plane" shaped codebook elements. The remote voxels with low density 
+            favor the codebook elements with larger receptive field. 
+          </p>
+        </div>
+        <div class="content has-text-centered">
+          <img src="./static/src/geo-vis.png"
+          class="geo-vis"
+          alt="Visualization of geometry."/>
+        </div>
+        <!--/ Geo-Vis. -->
+      </div>
+    </div>
+</section>
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{Zhao2022CodedVTRCS,
+      title={CodedVTR: Codebook-based Sparse Voxel Transformer with Geometric Guidance},
+      author={Tianchen Zhao and Niansong Zhang and Xuefei Ning and He Wang and Li Yi and Yu Wang},
+      journal={ArXiv},
+      year={2022},
+      volume={abs/2203.09887}
+    }</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="https://arxiv.org/abs/2203.09887">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            This means you are free to borrow the <a
+              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
+            we just ask that you link back to this page in the footer.
+            Please remember to remove the analytics code included in the header of the website which
+            you do not want on your website.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
