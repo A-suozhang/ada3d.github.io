@@ -102,7 +102,7 @@
               <a href="https://www.novauto.com.cn/">Zhongyuan Qiu</a><sup>2</sup>,
             </span>
             <span class="author-block">
-              <a href="https://nicsefc.ee.tsinghua.edu.cn/people/PuLu">Pu LU</a><sup>1</sup>,
+              <a href="https://nicsefc.ee.tsinghua.edu.cn/people/PuLu">Pu Lu</a><sup>1</sup>,
             </span>
             <span class="author-block">
               <a href="https://www.novauto.com.cn/">Yali Zhao</a><sup>2</sup>,
@@ -135,7 +135,7 @@
             <div class="publication-links">
               <!-- PDF Link. -->
               <span class="link-block">
-                <a href="https://nicsefc.ee.tsinghua.edu.cn/nics_file/pdf/03ae8c88-9134-4071-8dce-d450e77da75d.pdf"
+                <a href="https://nicsefc.ee.tsinghua.edu.cn/%2Fnics_file%2Fpdf%2F483f5379-b857-4cb2-b114-caaa366deaad.pdf"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fas fa-file-pdf"></i>
@@ -144,7 +144,7 @@
                 </a>
               </span>
               <span class="link-block">
-                <a href="https://arxiv.org/abs/2203.09887"
+                <a href="https://arxiv.org/abs/2307.08209"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="ai ai-arxiv"></i>
@@ -154,10 +154,10 @@
               </span>
               <!-- Sides Link. -->
               <span class="link-block">
-                <a href="http://nicsefc.ee.tsinghua.edu.cn/%2Fnics_file%2Fpdf%2F392e727e-ab7a-4883-a05a-13d9c85893b5.pdf"
+                <a href="https://nicsefc.ee.tsinghua.edu.cn/%2Fnics_file%2Fpdf%2Fa3462020-25d8-436c-993f-7aaf047cbd93.pdf"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
-                      <i class="fab fa-file-alt-0"></i>
+                      <i class="fas fa-file-alt"></i>
                   </span>
                   <span>Slides</span>
                 </a>
@@ -261,20 +261,9 @@
 <section class="section">
 
   <div class="container is-max-desktop">
-    <!--/ Teaser. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Teaser</h2>
-        <div class="publication-teaser">
-          <img src="./static/src/teaser.png"
-            class="teaser"
-            lt="Teaser."/>
-            <!-- <embed src="./static/src/poster.pdf" width="1600px" height="900px" /> -->
-        </div>
-      </div>
-    </div>
+
     <!--/ Poster. -->
-    <div class="columns is-centered has-text-centered">
+    <!-- <div class="columns is-centered has-text-centered">
       <div class="column is-full-width">
         <h2 class="title is-3">Poster</h2>
         <div class="publication-poster">
@@ -282,11 +271,11 @@
             class="poster"
             lt="Poster."/>
             <!-- <embed src="./static/src/poster.pdf" width="1600px" height="900px" /> -->
-        </div>
+        <!-- </div>
       </div>
-    </div>
+    </div> --> 
     <!--/ Video. -->
-    <div class="columns is-centered has-text-centered">
+    <!-- <div class="columns is-centered has-text-centered">
       <div class="column is-full-width">
         <h2 class="title is-3">Video</h2>
         <div class="publication-poster">
@@ -294,38 +283,49 @@
           frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
           allowfullscreen></iframe>
             <!-- <embed src="./static/src/poster.pdf" width="1600px" height="900px" /> -->
-        </div>
+        <!-- </div>
       </div>
-    </div>
+    </div> --> 
     <!-- Abstract. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-			(🚧🚧🚧🚧🚧🚧🚧🚧 Under construction, to update 🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧)
-            Transformers have gained much attention by outperforming convolutional neural networks in many 2D vision
-            tasks. However, they are known to have generalization problems and rely on massive-scale pre-training and sophisticated 
-            training techniques. When applying to 3D tasks,
-            the irregular data structure and limited data scale add to
-            the difficulty of transformer’s application.
+            Voxel-based methods have achieved state-of-the-art performance for 3D object detection in autonomous driving. However, their <b>significant computational and memory costs</b> pose a challenge for their application to resource-constrained vehicles. 
           </p>
           <p>
-            We propose CodedVTR (<b>Code</b>book-based <b>V</b>oxel <b>TR</b>ansformer), which improves 
-            data efficiency and generalization ability for 3D
-            sparse voxel transformers. On the one hand, we propose the
-            codebook-based attention that projects an attention space
-            into its subspace represented by the combination of “prototypes” in a learnable codebook. It regularizes attention
-            learning and improves generalization. On the other hand,
-            we propose geometry-aware self-attention that utilizes geometric information (geometric pattern, density) to guide attention learning. 
+            While current efficient 3D perception methods mainly focus on <b>"model-level redundancy"</b>. We discover that one reason for this high resource consumption is the presence of a large number of redundant background points in Lidar point clouds, resulting in <b>"data-level spatial redundancy"</b> in both 3D voxel and BEV map representation.
           </p>
           <p>
-            CodedVTR could be embedded into existing sparse convolution-based methods, and bring consistent performance improvements 
-            for indoor and outdoor 3D semantic segmentation tasks.
+            To address this issue, we propose an <b>adaptive inference framework - Ada3D</b>, which focuses on reducing the spatial redundancy to compress the model’s computational and memory cost. Ada3D adaptively filters the
+            redundant input, guided by a lightweight importance predictor and the unique properties of the Lidar point cloud.
+            Additionally, we maintain the BEV features’ intrinsic sparsity by introducing sparsity-preserving batch normalization.
+          </p>
+          <p>
+            With Ada3D, we achieve <b>40% reduction for 3D
+            voxels</b> and decrease the density of 2D BEV feature maps
+            <b>from 100% to 20%</b> without sacrificing accuracy. Ada3D
+            reduces the model computational and memory cost by 5×,
+            and achieves <b>1.52× / 1.45× end-to-end GPU latency</b> and
+            <b>1.5× / 4.5× GPU peak memory</b> optimization for the 3D
+            and 2D backbone respectively.
           </p>
         </div>
       </div>
     </div>
+        <!--/ Teaser. -->
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-full-width">
+            <h2 class="title is-3">Teaser</h2>
+            <div class="publication-teaser">
+              <img src="./static/src/teaser.png"
+                class="teaser"
+                lt="Teaser."/>
+                <!-- <embed src="./static/src/teaser.png" width="1600px" height="900px" /> -->
+            </div>
+          </div>
+        </div>
 
     <!-- Paper video. -->
     <!-- <div class="columns is-centered has-text-centered">
@@ -350,14 +350,17 @@
         <h2 class="title is-3">Motivation</h2>
 
         <!-- Generalization. -->
-        <h3 class="title is-4">Transformer's Generalization Issue</h3>
+        <h3 class="title is-4">Data-level Spatial Redundancy</h3>
         <div class="content has-text-justified">
           <p>
-            Transformers are known to have <b>generalization issues</b>. It requires large-scale pre-training and cannot be directly trained
-            on smaller datasets without overfitting. As the ViT paper states, <i>"When directly trained on the ImageNet, 
-            ViT yields modest accuracies of a few points below ResNets of comparable size".</i> When introducing transformers into the <b>3d domain</b>,
-            the generalization issue is aggravated by 3D data's relative restricted data scale and unique properties (sparsity, varying geometric shape). 
+            Lidar-based 3D point cloud have many redundant background points (e.g., road surface and wall), and overdense points. The 2D BEV feature is projected from 3D sparse voxels, therefore a large portion of pixels in BEV are background zero features. We conduct oracle experiments to verify the spatial redundancy. Randomly dropping 30% input voxels result in less than 0.5 mAP loss, Dropping 70% voxels out of ground-truth bounding box incurs negligible performance loss. 
           </p>
+        </div>
+        <div class="content has-text-centered">
+          <img src="./static/src/oracle.png"
+          class="exp-image"
+          alt="Experimental Results Image."
+          width="1600px" height="600px"/>
         </div>
         <!-- <div class="columns is-vcentered interpolation-panel">
           <div class="column is-3 has-text-centered">
@@ -368,100 +371,169 @@
         </div> -->
         <br/>
         <!--/ Generalization. -->
-
-        <!-- Codebook. -->
-        <h3 class="title is-4">Codebook-based Self-Attention</h3>
-        <div class="content has-text-justified">
-          <p>
-            Instead of directly learning the mapping from the activation space to the attention weight space. We construct a learnable codebook
-            , and use weighted sum of the codebook elements to approximate the attention weight. Noted that both the codebook elements and the 
-            weights are learnable.  It projects the attention learning
-            space to its subspace represented by the weighted sum of a few attention weight "prototypes" (codebook elements). It restricts
-            the attention learning space and works as regularization, which could improve generalization. <br>
-            (Interestingly, the codebook-based self-attention could be viewed as an intermediate state of transformer and convolution. 
-            When the codebook has only one element, it becomes convolution. And when the codebook has infinite number of elements, it 
-            works as transformer.)
-          </p>
-        </div>
-        <div class="content has-text-centered">
-          <img src="./static/src/codebook-attn.png"
-          class="Codebook-based self-attention"
-          alt="Codebook-based self-attention image."/>
-        </div>
-        <!--/ Codebook. -->
-
-        <!-- Geometric. -->
-        <h3 class="title is-4">Geometric-aware Self-Attention</h3>
-        <div class="content has-text-justified">
-          <p>
-            Considering the unique properties (distinct geometric shapes and varying densities) for 3D data, we carefully design distinctive geometric shapes and assign them to the attention
-            span of the codebook elements. We also use the geometric information to directly guide the attention learning, encouraging the attention
-            to choose the codebook element with the sparse pattern similar to the input activation. 
-          </p>
-        </div>
-        <div class="content has-text-centered">
-          <img src="./static/src/geo-attn.png"
-          class="geometry-attention"
-          alt="Geometry attention image."/>
-        </div>
-        <!--/ Geometric. -->
-
       </div>
     </div>
   <!--/ Motivation. -->
   </div>
 </div>
-
 <section class="section">
+  <!-- Motivation. -->
   <div class="container is-max-desktop">
     <div class="columns is-centered">
       <div class="column is-full-width">
-        <h2 class="title is-3">Experiments and Visualization</h2>
-        <!-- Perf. -->
-        <h3 class="title is-4">Performance</h3>
-        <div class="content has-text-justified">
-          <p>
-            CodedVTR could improve performance on both indoor and outdoor 3D semantic segmentation tasks. Noted that our CodedVTR block is 
-            compatible with existing sparse-conv based methods (e.g., SPVCNN).
-          </p>
-        </div>
+        <h2 class="title is-3">Methodology</h2>
+        The overall framework of Ada3D consists of 3 key components. 
+
         <div class="content has-text-centered">
-          <img src="./static/src/exp.png"
+          <img src="./static/src/flow.png"
           class="exp-image"
           alt="Experimental Results Image."
           width="1600px" height="600px"/>
         </div>
-        <!--/ Perf. -->
-        <!-- AttnMap. -->
-        <h3 class="title is-4">Visualization of Attention Map</h3>
+
+        <!-- Generalization. -->
+        <h3 class="title is-4">Importance Predictor</h3>
         <div class="content has-text-justified">
           <p>
-            One of the well-known issues of transformer optimization is the "attention collapse". The attention map tends to become
-            uniform in the latter layers. When introducing codebook-based attention, the codebook elements also tend to be similar. After employing 
-            the geometric guidance, the attention map becomes distinctive. 
+            We design a lightweight shared BEV space importance predictor that maps the input feature to pixel-wise relative importance. It's trained to fit the center-based heatmap.
           </p>
         </div>
         <div class="content has-text-centered">
-          <img src="./static/src/attn-map-viz.png"
+          <img src="./static/src/predictor.png"
+          class="exp-image"
+          alt="Experimental Results Image."
+          width="1600px" height="600px"/>
+        </div>
+        <br/>
+        <!--/ Generalization. -->
+
+        <!-- Generalization. -->
+        <h3 class="title is-4">Density-guided Spatial Filtering</h3>
+        <div class="content has-text-justified">
+          <p>
+            Lidar point cloud has the special property of density imbalance. The point cloud closer to the sensor is denser while the remote parts are sparse. The predictor tends to produce larger prediction for local parts, to compensate it, We introduce density-guidance for spatial filtering decision. 
+          </p>
+        </div>
+        <div class="content has-text-centered">
+          <img src="./static/src/density.png"
+          class="exp-image"
+          alt="Experimental Results Image."
+          width="1600px" height="600px"/>
+        </div>
+        <br/>
+        <!--/ Generalization. -->
+
+        <!-- Generalization. -->
+        <h3 class="title is-4">Sparsity-preserving Batch Normalization</h3>
+        <div class="content has-text-justified">
+          <p>
+            The 2D BEV feature have a large portion of zero features, thus having large sparsity. However, the sparsity is lost after the first batch normalization. Applying BN to nonzero elements only will violate the relative feature relation and brings traininig instability during finetuning. To preserve the sparsity for 2D feature map, we introduce the sparsity-preserving BN. 
+          </p>
+        </div>
+        <div class="content has-text-centered">
+          <img src="./static/src/spbn.png"
+          class="exp-image"
+          alt="Experimental Results Image."
+          width="800px" height="400px"/>
+        </div>
+        <br/>
+        <!--/ Generalization. -->
+                
+      </div>
+    </div>
+  <!--/ Motivation. -->
+  </div>
+</div>
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">Experiments and Analysis</h2>
+          <!-- Perf. -->
+          <h3 class="title is-4">Performance</h3>
+          <div class="content has-text-justified">
+            <p>
+              We presents the performance and model-level metrics on KITTI dataset: 
+            </p>
+          </div>
+          <div class="content has-text-centered">
+            <img src="./static/src/exp-kitti.png"
+            class="exp-image"
+            alt="Experimental Results Image."/>
+          </div>
+          <div class="content has-text-centered">
+            <img src="./static/src/kitti-detail.png"
+            class="exp-image"
+            alt="Experimental Results Image."/>
+          </div>
+        <!--/ Perf. -->
+        <!-- AttnMap. -->
+        <h3 class="title is-4">Hardware Experiments</h3>
+        <div class="content has-text-justified">
+          <p>
+            We further conduct hardware experiments to demonstrate the actual speedup of Ada3D. The results are generated on RTX3090 with CUDA-11.1, SpConv v2.2.6 gather-scatter dataflow. We found that both the 3D and 2D part of 3D detectors require acceleration, and they have different acceleration rate. 
+          </p>
+        </div>
+        <div class="content has-text-centered">
+          <img src="./static/src/analysis-hardware.png"
+          class="geo-vis"
+          alt="Attention map visualization."/>
+        </div>
+        <div class="content has-text-centered">
+          <img src="./static/src/bars.png"
           class="geo-vis"
           alt="Attention map visualization."/>
         </div>
         <!--/ AttnMap. -->
         <!-- Geo-vis. -->
-        <h3 class="title is-4">Visualization of Geometry Guidance</h3>
+        <h3 class="title is-4">Qualitative Results</h3>
         <div class="content has-text-justified">
           <p>
-            The voxels on the wall/corner tend to choose "vertical-cross" shaped codebook elements, the voxels 
-            on the floor/desk tend to choose the "plane" shaped codebook elements. The remote voxels with low density 
-            favor the codebook elements with larger receptive field. 
+          </p>
+        </div>
+        <h3 class="title is-5">Comparison with other compression methods</h3>
+        <div class="content has-text-justified">
+          <p>
+            Ada3D accelerates both the 3D and 2D backbone of 3D detector (some methods accelrates one of which only). Also, it could be combined with model-level compression methods (e,g, SPVNAS, VoxelNeXT).  
           </p>
         </div>
         <div class="content has-text-centered">
-          <img src="./static/src/geo-vis.png"
+          <img src="./static/src/comparison.png"
+          class="geo-vis"
+          alt="Attention map visualization."/>
+        </div>
+        <h3 class="title is-5">Ablation studies</h3>
+        <div class="content has-text-justified">
+          <p>
+            Ablation studies is conducted to show the effectiveness of each techniques. 
+          </p>
+        </div>
+        <div class="content has-text-centered">
+          <img src="./static/src/ablation.png"
+          class="geo-vis"
+          alt="Attention map visualization."/>
+        </div>
+        <h3 class="title is-5">Effectiveness of Ada3D</h3>
+        <div class="content has-text-justified">
+          <p>
+            The below visualizations demonstrate the effectiveness of Ada3D. 
+          </p>
+        </div>
+        <div class="content has-text-centered">
+          <img src="./static/src/analysis-heatmap.png"
+          class="geo-vis"
+          alt="Attention map visualization."/>
+        </div>
+        <div class="content has-text-centered">
+          <img src="./static/src/analysis-drop.png"
           class="geo-vis"
           alt="Visualization of geometry."/>
         </div>
-        <!--/ Geo-Vis. -->
+        <div class="content has-text-centered">
+          <img src="./static/src/analysis-density.png"
+          class="geo-vis"
+          alt="Visualization of geometry."/>
+        </div>
       </div>
     </div>
 </section>
@@ -469,13 +541,19 @@
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
-    <pre><code>@article{Zhao2022CodedVTRCS,
-      title={CodedVTR: Codebook-based Sparse Voxel Transformer with Geometric Guidance},
-      author={Tianchen Zhao and Niansong Zhang and Xuefei Ning and He Wang and Li Yi and Yu Wang},
+    <pre><code>@article{Zhao2023Ada3DE,
+      title={Ada3D : Exploiting the Spatial Redundancy with Adaptive Inference for Efficient 3D Object Detection},
+      author={Tianchen Zhao and Xuefei Ning and Ke Hong and Zhongyuan Qiu and Pu Lu and Yali Zhao and Linfeng Zhang and Lipu Zhou and Guohao Dai and Huazhong Yang and Yu Wang},
       journal={ArXiv},
-      year={2022},
-      volume={abs/2203.09887}
+      year={2023},
+      volume={abs/2307.08209},
+      url={https://api.semanticscholar.org/CorpusID:259937318}
     }</code></pre>
+  </div>
+  <div class="content has-text-centered">
+    <img src="./static/src/pr.png"
+    class="geo-vis"
+    alt="Attention map visualization."/>
   </div>
 </section>
 
@@ -484,10 +562,10 @@
   <div class="container">
     <div class="content has-text-centered">
       <a class="icon-link"
-         href="https://arxiv.org/abs/2203.09887">
+         href="https://arxiv.org/abs/2307.08209">
         <i class="fas fa-file-pdf"></i>
       </a>
-      <a class="icon-link" href="https://github.com/" class="external-link" disabled>
+      <a class="icon-link" href="https://github.com/A-suozhang/ada3d" class="external-link" disabled>
         <i class="fab fa-github"></i>
       </a>
     </div>
